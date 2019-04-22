@@ -330,7 +330,7 @@ const Map<Type, String> _shareModelMethodMapper = {
 };
 
 const Map<Type, String> _reqModelMethodMapper = {
-  WeChatReqOpenWebviewModel: "openWebview",
+  WeChatReqOpenWebviewModel: "req_openWebview",
 };
 
 const Map<int, AuthByQRCodeErrorCode> _authByQRCodeErrorCodes = {

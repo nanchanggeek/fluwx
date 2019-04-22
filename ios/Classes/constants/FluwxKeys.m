@@ -27,6 +27,8 @@ NSString *const fluwxKeyIOS=@"iOS";
 
 NSString *const fluwxKeyResult=@"result";
 
+NSString *const fluwxKeyUrl = @"url";
+
 @implementation FluwxKeys {
 
 }
