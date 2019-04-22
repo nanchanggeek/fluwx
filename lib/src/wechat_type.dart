@@ -23,3 +23,6 @@ enum WXMiniProgramType { RELEASE, TEST, PREVIEW }
 ///[WeChatScene.TIMELINE]朋友圈
 ///[WeChatScene.FAVORITE]收藏
 enum WeChatScene { SESSION, TIMELINE, FAVORITE }
+
+///[WeChatReqType.WEBVIEW]打开指定网页
+enum WeChatReqType { WEBVIEW }

@@ -185,9 +185,9 @@ Future share(WeChatShareModel model) async {
 ///the [WeChatReqModel] can not be null
 ///see [WeChatReqOpenWebviewModel]
 Future sendReq(WeChatReqModel model) async {
-  if (_shareModelMethodMapper.containsKey(model.runtimeType)) {
+  if (_reqModelMethodMapper.containsKey(model.runtimeType)) {
     return await _channel.invokeMethod(
-        _shareModelMethodMapper[model.runtimeType], model.toMap());
+        _reqModelMethodMapper[model.runtimeType], model.toMap());
   } else {
     return Future.error("no method mapper found[${model.runtimeType}]");
   }

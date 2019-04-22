@@ -20,7 +20,7 @@ import '../wechat_type.dart';
 const String _url = "url";
 const String _reqType = "reqType";
 
-///Base Class for Sharing
+///Base Class for Req
 abstract class WeChatReqModel {
   final WeChatReqType reqType;
 
