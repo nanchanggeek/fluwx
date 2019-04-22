@@ -8,6 +8,7 @@
 #import "FluwxKeys.h"
 #import "FluwxWXApiHandler.h"
 #import "FluwxShareHandler.h"
+#import "FluwxReqHandler.h"
 #import "FluwxLaunchMiniProgramHandler.h"
 #import "FluwxSubscribeMsgHandler.h"
 
@@ -17,7 +18,7 @@ BOOL isWeChatRegistered = NO;
 BOOL handleOpenURLByFluwx = YES;
 
 FluwxShareHandler *_fluwxShareHandler;
-
+FluwxReqHandler *_fluwxReqHandler;
 FluwxAuthHandler *_fluwxAuthHandler;
 FluwxWXApiHandler *_fluwxWXApiHandler;
 FluwxPaymentHandler *_fluwxPaymentHandler;
@@ -49,6 +50,7 @@ FluwxSubscribeMsgHandler *_fluwxSubscribeMsgHandler;
 //                                               object:nil];
     if (self) {
         _fluwxShareHandler = [[FluwxShareHandler alloc] initWithRegistrar:registrar];
+        _fluwxReqHandler = [[FluwxReqHandler alloc] initWithRegistrar:registrar];
         _fluwxAuthHandler = [[FluwxAuthHandler alloc] initWithRegistrar:registrar methodChannel:flutterMethodChannel] ;
         _fluwxWXApiHandler = [[FluwxWXApiHandler alloc] init];
         _fluwxPaymentHandler = [[FluwxPaymentHandler alloc] initWithRegistrar:registrar];
@@ -114,7 +116,7 @@ FluwxSubscribeMsgHandler *_fluwxSubscribeMsgHandler;
     }
 
     if ([call.method hasPrefix:@"req_"]) {
-        [_fluwxShareHandler handleReq:call result:result];
+        [_fluwxReqHandler handleReq:call result:result];
         return;
     } else {
         result(FlutterMethodNotImplemented);
