@@ -40,15 +40,14 @@ class WeChatReqOpenWebviewModel extends WeChatReqModel {
 
   WeChatReqOpenWebviewModel({
     String url,
-    WeChatReqType reqType = WeChatReqType.WEBVIEW,
   })  : this.url = url ?? "https://www.baidu.com/",
-        super(reqType: reqType);
+        super(reqType: WeChatReqType.WEBVIEW);
 
   @override
   Map toMap() {
     return {
       _url: url,
-      _reqType: reqType,
+      _reqType: reqType.toString(),
     };
   }
 }
