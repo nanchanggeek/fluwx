@@ -31,6 +31,7 @@ class FluwxPlugin(private val registrar: Registrar, channel: MethodChannel) : Me
             val channel = MethodChannel(registrar.messenger(), "com.jarvanmo/fluwx")
             WXAPiHandler.setRegistrar(registrar)
             FluwxResponseHandler.setMethodChannel(channel)
+            RequestHandlers.setMethodChannel(channel)
             channel.setMethodCallHandler(FluwxPlugin(registrar, channel))
         }
     }
