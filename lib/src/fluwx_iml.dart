@@ -22,6 +22,7 @@ import 'package:flutter/services.dart';
 import 'models/wechat_auth_by_qr_code.dart';
 import 'models/wechat_response.dart';
 import 'models/wechat_share_models.dart';
+import 'models/wechat_req_models.dart';
 import 'utils/utils.dart';
 import 'wechat_type.dart';
 
@@ -181,6 +182,17 @@ Future share(WeChatShareModel model) async {
   }
 }
 
+///the [WeChatReqModel] can not be null
+///see [WeChatReqOpenWebviewModel]
+Future sendReq(WeChatReqModel model) async {
+  if (_shareModelMethodMapper.containsKey(model.runtimeType)) {
+    return await _channel.invokeMethod(
+        _shareModelMethodMapper[model.runtimeType], model.toMap());
+  } else {
+    return Future.error("no method mapper found[${model.runtimeType}]");
+  }
+}
+
 /// The WeChat-Login is under Auth-2.0
 /// This method login with native WeChat app.
 /// For users without WeChat app, please use [authByQRCode] instead
@@ -315,6 +327,10 @@ const Map<Type, String> _shareModelMethodMapper = {
   WeChatShareVideoModel: "shareVideo",
   WeChatShareWebPageModel: "shareWebPage",
   WeChatShareMiniProgramModel: "shareMiniProgram"
+};
+
+const Map<Type, String> _reqModelMethodMapper = {
+  WeChatReqOpenWebviewModel: "openWebview",
 };
 
 const Map<int, AuthByQRCodeErrorCode> _authByQRCodeErrorCodes = {
