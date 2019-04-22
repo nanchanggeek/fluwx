@@ -27,5 +27,5 @@ public class WeChatPluginMethods {
 
     public static final String SUBSCRIBE_MSG = "subscribeMsg";
 
-    public static final String OPEN_WEBVIEW = "openWebview";
+    public static final String OPEN_WEBVIEW = "req_openWebview";
 }
