@@ -28,5 +28,7 @@ extern NSString *const fluwxKeyIOS;
 
 extern NSString *const fluwxKeyResult;
 
+extern NSString *const fluwxKeyUrl;
+
 @interface FluwxKeys : NSObject
 @end

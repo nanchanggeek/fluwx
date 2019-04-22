@@ -14,6 +14,7 @@ extern NSString *const shareVideo;
 extern NSString *const shareWebPage;
 extern NSString *const shareMiniProgram;
 extern NSString *const launchMiniProgram;
+extern NSString *const openWebview;
 
 @interface FluwxMethods : NSObject
 @end

@@ -113,6 +113,12 @@ FluwxSubscribeMsgHandler *_fluwxSubscribeMsgHandler;
         result(FlutterMethodNotImplemented);
     }
 
+    if ([call.method hasPrefix:@"req_"]) {
+        [_fluwxShareHandler handleReq:call result:result];
+        return;
+    } else {
+        result(FlutterMethodNotImplemented);
+    }
 
 }
 
