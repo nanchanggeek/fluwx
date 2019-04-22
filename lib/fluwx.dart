@@ -8,4 +8,5 @@ export 'src/fluwx_iml.dart';
 export 'src/models/wechat_auth_by_qr_code.dart';
 export 'src/models/wechat_response.dart';
 export 'src/models/wechat_share_models.dart';
+export 'src/models/wechat_req_models.dart';
 export 'src/wechat_type.dart';

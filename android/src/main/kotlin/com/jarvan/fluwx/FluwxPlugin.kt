@@ -31,6 +31,7 @@ class FluwxPlugin(private val registrar: Registrar, channel: MethodChannel) : Me
             val channel = MethodChannel(registrar.messenger(), "com.jarvanmo/fluwx")
             WXAPiHandler.setRegistrar(registrar)
             FluwxResponseHandler.setMethodChannel(channel)
+            RequestHandlers.setMethodChannel(channel)
             channel.setMethodCallHandler(FluwxPlugin(registrar, channel))
         }
     }
@@ -40,6 +41,7 @@ class FluwxPlugin(private val registrar: Registrar, channel: MethodChannel) : Me
     private val fluwxPayHandler = FluwxPayHandler()
     private val fluwxLaunchMiniProgramHandler = FluwxLaunchMiniProgramHandler()
     private val fluwxSubscribeMsgHandler = FluwxSubscribeMsgHandler()
+    private val fluwxWebViewHandler = FluwxWebViewHandler()
 
     init {
         fluwxShareHandler.setRegistrar(registrar)
@@ -95,6 +97,11 @@ class FluwxPlugin(private val registrar: Registrar, channel: MethodChannel) : Me
 
         if (WeChatPluginMethods.SUBSCRIBE_MSG == call.method) {
             fluwxSubscribeMsgHandler.subScribeMsg(call, result)
+            return
+        }
+
+        if(call.method == WeChatPluginMethods.OPEN_WEBVIEW){
+            fluwxWebViewHandler.openWebView(call, result)
             return
         }
 
