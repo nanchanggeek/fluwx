@@ -14,12 +14,10 @@
 #import "ThumbnailHelper.h"
 #import "NSStringWrapper.h"
 
-@implementation FluwxShareHandler
-
-CGFloat thumbnailWidth;
-
-NSObject <FlutterPluginRegistrar> *_registrar;
-
+@implementation FluwxShareHandler {
+    CGFloat thumbnailWidth;
+    NSObject <FlutterPluginRegistrar> *_registrar;
+}
 
 - (instancetype)initWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
     self = [super init];

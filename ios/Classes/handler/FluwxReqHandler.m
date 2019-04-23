@@ -3,7 +3,7 @@
 //
 
 
-#import "FluwxShareHandler.h"
+#import "FluwxReqHandler.h"
 #import "CallResults.h"
 
 #import "FluwxKeys.h"
@@ -11,11 +11,9 @@
 #import "StringUtil.h"
 #import "NSStringWrapper.h"
 
-@implementation FluwxReqHandler
-
-
-NSObject <FlutterPluginRegistrar> *_registrar;
-
+@implementation FluwxReqHandler {
+   NSObject <FlutterPluginRegistrar> *_registrar;
+}
 
 - (instancetype)initWithRegistrar:(NSObject <FlutterPluginRegistrar> *)registrar {
     self = [super init];
@@ -45,7 +43,7 @@ NSObject <FlutterPluginRegistrar> *_registrar;
 
 - (void)openWebview:(FlutterMethodCall *)call result:(FlutterResult)result {
     NSString *url = call.arguments[fluwxKeyUrl];
-    BOOL done = [WXApiRequestHandler openUrl: url]];
+    BOOL done = [WXApiRequestHandler openUrl: url];
     result(@{fluwxKeyPlatform: fluwxKeyIOS, fluwxKeyResult: @(done)});
 }
 
